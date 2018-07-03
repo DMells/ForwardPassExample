@@ -17,15 +17,19 @@ def sigmoid(x):
     return 1/(1+np.exp(-x))
 
 # Network size
+
 N_input = 4
 N_hidden = 3
 N_output = 2
 
 np.random.seed(42)
+
 # Make some fake data
+
 X = np.random.randn(4)
 
 # To produce the first forward pass, we need to establish random weights for the activation function:
+
 weights_input_to_hidden = np.random.normal(0, scale=0.1, size=(N_input, N_hidden))
 weights_hidden_to_output = np.random.normal(0, scale=0.1, size=(N_hidden, N_output))
 
