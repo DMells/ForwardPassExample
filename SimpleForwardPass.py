@@ -3,9 +3,6 @@ import numpy as np
 # The sigmoid function is used to convert outputs to within a scale of 0 to 1. An output with a value close to 1 is synonymous with having a high probability that the estimated output is a good prediction of the actual output, which we would already know from human-derived labels.
 
 def sigmoid(x):
-    """
-    Calculate sigmoid
-    """
     return 1/(1+np.exp(-x))
 
 # Network size
@@ -22,7 +19,9 @@ weights_input_to_hidden = np.random.normal(0, scale=0.1, size=(N_input, N_hidden
 weights_hidden_to_output = np.random.normal(0, scale=0.1, size=(N_hidden, N_output))
 
 
-# Make a forward pass through the network. The dot product function multiplies each value of the input vector X with the corresponding weights in the weight matrix. We then convert the activation function using sigmoid :
+# Make a forward pass through the network. The dot product function multiplies each value of the input 
+# vector X with the corresponding weights in the weight matrix. This is opposed to using just normal multiplication which would
+# do in the case of element-wise operations. We then convert the activation function using sigmoid.
 
 hidden_layer_in = np.dot(X, weights_input_to_hidden)
 hidden_layer_out = sigmoid(hidden_layer_in)
